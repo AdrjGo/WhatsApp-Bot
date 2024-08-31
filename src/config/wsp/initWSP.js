@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const credentialPath = path.join(
   __dirname,
-  "../secure-air-434223-t6-6b79ee78bfd6.json"
+  "<RUTA DE TU ARCHIVO DE CREDENCIALES DE DIALOGFLOW>"
 );
 const sessionClient = new dialogflow.SessionsClient({
   keyFilename: credentialPath,
@@ -46,8 +46,7 @@ const inicializarWSP = async () => {
   //MENSAJES
   clienteWSP.on("message", async (message) => {
     try {
-      const sessionPath = sessionClient.projectAgentSessionPath(
-        process.env.ID_PROJECT, message.from
+      const sessionPath = sessionClient.projectAgentSessionPath(<ID_DE_TU_PROYECTO_DIALOGFLOW>, message.from
       );
       console.log(`Mensaje recibido del usuario - ${message.from}: ${message.body}`);
 
